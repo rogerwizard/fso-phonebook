@@ -14,6 +14,16 @@ const App = () => {
 
   const formSubmitHandler = (e) => {
     e.preventDefault()
+
+    const containsNewName = persons.some(
+      (person) => person.name === newName
+    )
+
+    if (containsNewName) {
+      alert(`${newName} is already added to phonebook`)
+      return
+    }
+
     setPersons(persons.concat(
       { name: newName }
     ))
